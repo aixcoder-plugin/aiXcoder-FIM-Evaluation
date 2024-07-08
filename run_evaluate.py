@@ -413,7 +413,7 @@ def main(config):
     result_total += f"{'Task Type':<20}\t{'Exact Match %':<20}\t{'BLEU-4':<20}\t{'CODE-BLEU':<20}\t{'Length(Pred/Ref)':<20}\t{'Case Number':<20}\n"
     for language in languages:
         if language == 'cpp':
-            language == 'cplus'
+            language = 'cplus'
         # python_aiXcoder-7b-base-weights_12k.jsonl
         result_jsonl = f'{config.result_path}/{language}_{result_dir}_8k.jsonl'
         if os.path.exists(result_jsonl):
