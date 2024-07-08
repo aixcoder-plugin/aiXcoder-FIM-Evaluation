@@ -244,18 +244,18 @@ def get_statistics(item_dict):
     return statistics
 
 
-def construct_result_str(task_type, exact_match_statistics, acceptable_statistics, bleu4_score_statistics,
+def construct_result_str(task_type, exact_match_statistics, bleu4_score_statistics,
                          codebleu_score_statistics,
                          prediction_length_statistics, reference_length_statistics, count_dict):
     em_stats = exact_match_statistics[task_type]
-    acp_stats = acceptable_statistics[task_type]
+    # acp_stats = acceptable_statistics[task_type]
     bl4_stats = bleu4_score_statistics[task_type]
     cb_stats = codebleu_score_statistics[task_type]
     plen_stats = prediction_length_statistics[task_type]
     rlen_stats = reference_length_statistics[task_type]
     count = count_dict[task_type]
     return f"{task_type:<20}\t" \
-           f"mean: {em_stats['mean'] * 100:<15.3f}\tmean: {acp_stats['mean'] * 100:<15.3f}\tmean: {bl4_stats['mean']:<15.3f}\tmean: {cb_stats['mean']:<15.3f}\tmean: {plen_stats['mean']:<4.0f} / {rlen_stats['mean']:<10.0f}\t{count:<10}\n\n"
+           f"mean: {em_stats['mean'] * 100:<15.3f}\tmean: {bl4_stats['mean']:<15.3f}\tmean: {cb_stats['mean']:<15.3f}\tmean: {plen_stats['mean']:<4.0f} / {rlen_stats['mean']:<10.0f}\t{count:<10}\n\n"
     #    f"mean: {em_stats['mean'] * 100:<15.3f}\tmean: {acp_stats['mean'] * 100:<15.3f}\tmean: {bl4_stats['mean']:<15.3f}\tmean: {cb_stats['mean']:<15.3f}\tmean: {plen_stats['mean']:<4.0f} / {rlen_stats['mean']:<10.0f}\t{count:<10}\n" \
     #    f"{' ':<70}\t std: {bl4_stats['std']:<15.3f}\t std: {cb_stats['std']:<15.3f}\t std: {plen_stats['std']:<4.0f} / {rlen_stats['std']:<10.0f}\n" \
     #    f"{' ':<70}\t25th: {bl4_stats['25th_percentile']:<15.3f}\t25th: {cb_stats['25th_percentile']:<15.3f}\t25th: {plen_stats['25th_percentile']:<4.0f} / {rlen_stats['25th_percentile']:<10.0f}\n" \
